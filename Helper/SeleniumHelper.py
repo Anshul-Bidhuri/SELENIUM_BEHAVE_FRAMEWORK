@@ -1,6 +1,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from Logs import logs_file
 
+log = logs_file.get_logs()
 
 class SeleniumHelper:
     def __init__(self, driver):
@@ -11,6 +13,7 @@ class SeleniumHelper:
 
     def insert_text_in_input_field(self, locator, input_text):
         self.driver.find_element(list(locator.keys())[0], list(locator.values())[0]).send_keys(input_text)
+        log.info(f"Entering text: {input_text} in locator: {locator}")
 
     def click(self, locator):
         self.driver.find_element(list(locator.keys())[0], list(locator.values())[0]).click()
