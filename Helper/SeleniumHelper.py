@@ -4,6 +4,7 @@ from Logs import logs_file
 
 log = logs_file.get_logs()
 
+
 class SeleniumHelper:
     def __init__(self, driver):
         self.driver = driver
@@ -29,5 +30,6 @@ class SeleniumHelper:
             log.info(f"Element found")
             flag = True
         except Exception as e:
-            log.error(f"Element {list(locator.values())[0]} not found after waiting {timeout} seconds")
+            log.error(
+                f"Element {list(locator.values())[0]} not found after waiting {timeout} seconds due to exception: {e}")
         return flag
