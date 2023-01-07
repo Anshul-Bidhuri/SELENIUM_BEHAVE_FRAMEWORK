@@ -1,8 +1,8 @@
 from Webdriver import webdriver
-
+import logging
 
 def before_scenario(context, scenario):
-    context.driver = webdriver.get_chrome_webdriver()
+    context.driver = logging.FileHandler.selenium_driver = webdriver.get_chrome_webdriver()
     context.driver.maximize_window()
 
 

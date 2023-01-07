@@ -31,5 +31,5 @@ class SeleniumHelper:
             flag = True
         except Exception as e:
             log.error(
-                f"Element {list(locator.values())[0]} not found after waiting {timeout} seconds due to exception: {e}")
+                f"Element {list(locator.values())[0]} not found after waiting {timeout} seconds")
         return flag
