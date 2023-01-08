@@ -11,7 +11,7 @@ def step_impl(context, login_id, password):
     status = False
     try:
         SeleniumHelper(context.driver).open_page(test_data.facebook_login_url)
-        SeleniumHelper(context.driver).insert_text_in_input_field(locators.input_field_login)
+        SeleniumHelper(context.driver).insert_text_in_input_field(locators.input_field_login, login_id)
         SeleniumHelper(context.driver).insert_text_in_input_field(locators.input_field_password, password)
         SeleniumHelper(context.driver).click(locators.button_login)
         status = True
