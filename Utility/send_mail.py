@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 import os
 from datetime import datetime
 from dotenv import load_dotenv
-
+import upload_report_to_cloud_storage
 load_dotenv()
 
 browser = sys.argv[1]
@@ -19,10 +19,11 @@ email_receiver = 'ID of the receiver'
 def generate_mailer_body():
     """This Method returns Email message Subject, mail Body of the mail"""
     subject = f"Automation Status | Browser: {browser} | {datetime.now().strftime('%d/%m/%y %I:%M %p')}"
-    body = """
+    body = f"""
     <h3>Automation Run is completed.</h3>
-    Thanks & Regards,<br>
-    Automation Team
+    Please find the report <a href="{upload_report_to_cloud_storage.upload_report_to_cloud()}">here.</a><br>
+    <p style="font-size:10px">Thanks & Regards,<br>
+    Automation Team</p>
     """
     em = EmailMessage()
     html_body = MIMEText(body, 'html')
